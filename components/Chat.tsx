@@ -122,9 +122,10 @@ export default function Chat() {
       <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
         <UploadButton onUpload={handleUpload} />
         <button
-          onClick={() =>
-            setMessages([{ role: "assistant", content: "Do you want to upload an image or search for an image?" }])
-          }
+          onClick={() => {
+            setMessages([{ role: "assistant", content: "Do you want to upload an image or search for an image?" }]);
+            setResults(null);
+          }}
           style={{ padding: "8px 12px" }}
         >
           Reset
@@ -146,6 +147,7 @@ export default function Chat() {
           e.preventDefault();
           const q = text.trim();
           if (!q) return;
+          setResults(null);
           void sendToChat([{ role: "user", content: q }]);
           setText("");
         }}
@@ -166,6 +168,7 @@ export default function Chat() {
         <button
           onClick={() => {
             const q = text.trim();
+            setResults(null);
             if (q) runSearch(q);
           }}
           style={{ padding: "10px 14px" }}
