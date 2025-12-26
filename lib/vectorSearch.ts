@@ -1,6 +1,6 @@
 import { pool } from "./db";
 
-export async function searchSimilar(embedding: number[], limit = 5) {
+export async function searchSimilar(embedding: number[], limit = 1) {
   const vectorLiteral = `[${embedding.join(",")}]`;
 
   const res = await pool.query(

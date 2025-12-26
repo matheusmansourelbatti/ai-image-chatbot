@@ -12,7 +12,7 @@ export async function POST(req: Request) {
   }
 
   const embedding = await embedText(query);
-  const results = await searchSimilar(embedding, typeof limit === "number" ? limit : 5);
+  const results = await searchSimilar(embedding, typeof limit === "number" ? limit : 1);
 
   return NextResponse.json({ results });
 }

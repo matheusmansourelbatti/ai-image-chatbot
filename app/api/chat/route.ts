@@ -95,7 +95,7 @@ The user chose SEARCH. Ask them to describe the image they want in 1 sentence.
 
   if (lastSearchChoiceIdx !== -1 && lastSearchChoiceIdx < messages.length - 1) {
     const embedding = await embedText(lastUser);
-    const results = await searchSimilar(embedding, 5);
+    const results = await searchSimilar(embedding, 1);
 
     return new Response(formatResults(results), {
       status: 200,

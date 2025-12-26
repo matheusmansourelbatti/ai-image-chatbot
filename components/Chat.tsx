@@ -111,7 +111,7 @@ export default function Chat() {
     const res = await fetch("/api/search", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query, limit: 5 }),
+      body: JSON.stringify({ query, limit: 1 }),
     });
     const data = await res.json();
     setResults(data.results ?? []);
